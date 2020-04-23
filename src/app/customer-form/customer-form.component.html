@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row my-5 py-3">
+    <div class="col col-12">
+      <h2 class="h1-responsive font-weight-bold text-center intro-text my-4">{{title}}</h2>
+
+
+      <!-- /////////////FORMULARIO//////////////// -->
+      <ng-template #elseBlock>
+        <button type="submit" class="btn btn-md btn-outline-primary btn-rounded" (click)="create()" *ngIf="!customer.id else elseBlock">Create</button>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <button type="submit" class="btn btn-md btn-outline-primary btn-rounded" (click)="create()" *ngIf="!customer.id else elseBlock">Create</button>
+      </ng-template>
+
+      <form (ngSubmit)="create()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Name</label>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <input type="text" class="form-control" name="name" id="name" [(ngModel)]="customer.name" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lastName" class="col-sm-2 col-md-2 col-lg-2 col-form-label">LastName</label>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="customer.lastName" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Email</label>
+              <div class="col-lg-10 col-md-10 col-sm-10 input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                </div>
+                <input type="email" class="form-control" name="email" id="email" [(ngModel)]="customer.email" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="photo" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Photo</label>
+              <div class="input-group mb-3 col-lg-10 col-md-10 col-sm-10">
+                <!-- <div class="input-group-prepend"> -->
+                <!-- <span class="input-group-text blue darken-1 text-white" id="inputGroupFileAddon01">Upload</span>-->
+                <!-- </div> -->
+                <!-- <div class="custom-file"> -->
+                <input type="text" class="form-control" id="photo" name="photo" [(ngModel)]="customer.photo" aria-describedby="inputGroupFileAddon01" />
+                <!-- <label class="custom-file-label" for="photo"></label>-->
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+          <!--Grid column-->
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-2 col-md-2 col-lg-2 col-form-label">Date</label>
+              <div class="col-lg-10 col-md-10 col-sm-10 input-group">
+                <input type="date" class="form-control" name="createAt" id="createAt" placeholder="mm/dd/yyyy" />
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-md-2 col-lg-2 col-form-label">Phone</label>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <input class="form-control" type="tel" name="Phone" id="phone">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-md-2 col-lg-2 col-form-label">Address:</label>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <select class="form-control mr-1 custom-select" name="country" id="country">
+                    <option value="" selected>Country</option>
+                    <option value="cuba">Cuba</option>
+                    <option value="canada">Canadá</option>
+                    <option value="eau">Emiratos Arabes Unidos</option>
+                  </select>
+                <select class="form-control custom-select my-2" name="city" id="city">
+                    <option value="" selected>City</option>
+                    <option value="city1">city1</option>
+                    <option value="city2">city2</option>
+                    <option value="city3">city3</option>
+                    <option value="city4">city4</option>
+                  </select>
+                <input type="text" class="form-control mt-1" id="street" placeholder="Street" />
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!--Grid column-->
+        <button type="submit" class="btn btn-md btn-outline-primary btn-rounded" (click)="create()" *ngIf="!customer.id else elseBlock">Create</button>
+        <ng-template #elseBlock>
+          <button type="submit" class="btn btn-md btn-outline-primary btn-rounded" (click)="update()">Update</button>
+        </ng-template>
+
+      </form>
+      <!-- /////////////FORMULARIO//////////////// -->
+
+
+    </div>
+  </div>
+</div>

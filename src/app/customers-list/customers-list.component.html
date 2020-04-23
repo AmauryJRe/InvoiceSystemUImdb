@@ -1,0 +1,31 @@
+<main>
+  <div class="container">
+    <div class="my-5 py-5">
+      <h1 class="text-secondary border border-primary border-top-0 border-left-0 border-right-0">Customers list</h1>
+
+      <button mdbBtn type="button" color="secondary" class="waves-light" (click)="setEnabled()">{{enabled?'Hide':'Show'}}</button>
+      <table mdbTable *ngIf="enabled" class="table">
+        <thead>
+          <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let customer of customers; trackBy: trackByFn">
+            <th scope="row">{{customer.id}}</th>
+            <td>{{customer.name}}</td>
+            <td>{{customer.lastname}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.createAt}}</td>
+            <td>
+              <button type="button" mdbBtn color="warning" class="relative waves-light btn-sm" mdbWavesEffect [routerLink]="[ '/customers/form', customer.id ]">Edit</button>
+            </td>
+            <td>
+              <button type="button" mdbBtn color="danger" class="relative waves-light btn-sm" mdbWavesEffect (click)="delete(customer)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
